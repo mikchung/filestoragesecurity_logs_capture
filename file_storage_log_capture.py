@@ -27,7 +27,7 @@ def lambda_handler(event, context):
     dynamo_table.put_item(
         Item={
             
-            'time_snap': 'random',
+            'time_snap': time_stamp,
             'errors':errors, 
             'file_size':file_size, 
             'file_url':file_url, 
