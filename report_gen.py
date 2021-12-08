@@ -4,15 +4,15 @@ import pandas as pd
 s3_resource = boto3.resource(
     service_name='s3',
     region_name='ap-southeast-2',
-    aws_access_key_id='AKIAUFMJAYJVYCEV6RBD',
-    aws_secret_access_key='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'
+    aws_access_key_id='',
+    aws_secret_access_key=''
 )
 
 s3_session = boto3.client(
     service_name='s3',
     region_name='ap-southeast-2',
-    aws_access_key_id='AKIAUFMJAYJVYCEV6RBD',
-    aws_secret_access_key='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'
+    aws_access_key_id='',
+    aws_secret_access_key=''
 )
 
 dest_bucket = s3_resource.Bucket('fss-test-logs')
