@@ -4,15 +4,15 @@ import pandas as pd
 s3_resource = boto3.resource(
     service_name='s3',
     region_name='ap-southeast-2',
-    aws_access_key_id='AKIAUFMJAYJVYCEV6RBD',
-    aws_secret_access_key='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'
+    aws_access_key_id='',
+    aws_secret_access_key=''
 )
 
 s3_session = boto3.client(
     service_name='s3',
     region_name='ap-southeast-2',
-    aws_access_key_id='AKIAUFMJAYJVYCEV6RBD',
-    aws_secret_access_key='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'
+    aws_access_key_id='',
+    aws_secret_access_key=''
 )
 
 dest_bucket = s3_resource.Bucket('fss-test-logs')
@@ -29,7 +29,7 @@ def log_collector():
 
     df = pd.DataFrame(files_to_scan, columns=['Name'])
     #df = df[0].str.decode('utf-8')
-    df['Name'].str.split(',', expand=True)
+    df[['Name', 'File URL', 'Scan Successful?', 'Bytes', 'Findings', 'Scanner status', 'Time of Scan']] = df['Name'].str.split(',', expand=True)
 
     #print(files_to_scan)
 
