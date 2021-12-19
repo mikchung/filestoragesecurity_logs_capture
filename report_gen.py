@@ -32,13 +32,10 @@ def log_collector():
         files_to_scan.append(body_text)
 
     df = pd.DataFrame(files_to_scan, columns=['Name'])
-    #df = df[0].str.decode('utf-8')
     df[['Name', 'File URL', 'Scan Successful?', 'Bytes', 'Findings', 'Scanner status', 'Time of Scan']] = df['Name'].str.split(',', expand=True)
 
     #df = df[
     #    'Name'].str.split(',', expand=True)
-
-    #print(files_to_scan)
 
     print(df.head())
     df.to_csv('test_extract.csv')
