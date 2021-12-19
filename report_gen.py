@@ -3,14 +3,14 @@ import pandas as pd
 
 s3_resource = boto3.resource(
     service_name='s3',
-    region_name='ap-southeast-2',
+    region_name='',
     aws_access_key_id='',
     aws_secret_access_key=''
 )
 
 s3_session = boto3.client(
     service_name='s3',
-    region_name='ap-southeast-2',
+    region_name='',
     aws_access_key_id='',
     aws_secret_access_key=''
 )
@@ -33,9 +33,6 @@ def log_collector():
 
     df = pd.DataFrame(files_to_scan, columns=['Name'])
     df[['Name', 'File URL', 'Scan Successful?', 'Bytes', 'Findings', 'Scanner status', 'Time of Scan']] = df['Name'].str.split(',', expand=True)
-
-    #df = df[
-    #    'Name'].str.split(',', expand=True)
 
     print(df.head())
     df.to_csv('test_extract.csv')
